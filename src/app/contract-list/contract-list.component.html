@@ -1,0 +1,20 @@
+<table class="table table-striped" data-auto-refresh="true">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Vorname</th>
+      <th scope="col">Namchname</th>
+      <th scope="col">Vertragsnummer</th>
+	  <th scope="col">Stadt</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr *ngFor="let rec of records" class="clickable-row" (click)="onSelectedRow(rec)">
+	  <th scope="row">{{rec.item}}</th>
+      <td>{{rec.name}}</td>
+      <td>{{rec.surname}}</td>
+      <td>{{rec.contractNumber}}</td>
+	  <td>{{rec.city}}</td>
+   </tr>
+  </tbody>
+</table>

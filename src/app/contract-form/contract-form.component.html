@@ -1,0 +1,170 @@
+<form>
+<mat-grid-list cols="10" rowHeight="50px">
+<div form-group>
+  <mat-grid-tile colspan="2" rowspan="1">
+  <mat-grid-tile-header>
+   {{label.contractNumber}}
+   </mat-grid-tile-header>
+  </mat-grid-tile> 
+  <mat-grid-tile colspan="8" rowspan="1">
+    <input type="text" class="form-control" disabled name="contractNumber" id="contractNo" name="contractNo" [value]="model.contractNumber">
+  </mat-grid-tile>
+</div>
+<div form-group>
+  <mat-grid-tile colspan="2" rowspan="1">
+    <mat-grid-tile-header >
+    {{label.name}}
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="1">
+    <input type="text" class="form-control" id="name" name="fname" #fname="ngModel" required maxlength="30" pattern="[a-zA-ZÄÖÜäöüß\-\s]*" [(ngModel)]="model.name" (change)="dataChanged()">
+  </mat-grid-tile>
+</div>
+<div form-group>
+  <mat-grid-tile colspan="2" rowspan="1">
+	<mat-grid-tile-header>
+    {{label.surname}}
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="1">
+    <input type="text" class="form-control" id="surname" name="surname" #surname="ngModel" required maxlength="30" pattern="[a-zA-ZÄÖÜäöüß\-\s]*" [(ngModel)]="model.surname" (change)="dataChanged()">
+  </mat-grid-tile>
+</div>
+
+<div id="name-error" *ngIf="fname.invalid && (fname.dirty || fname.touched)">
+  <mat-grid-tile colspan="10" rowspan="1">
+    <mat-grid-tile-header>
+		<span id="1" *ngIf="fname.errors.required"><strong>{{label.name}}</strong> Eingabe ist erforderlich.</span>
+		<span id="2" *ngIf="fname.errors.pattern">Es sind nur Buchstaben erlaubt.</span>
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+</div>
+<div id="surname-error" *ngIf="surname.invalid && (surname.dirty || surname.touched)">
+  <mat-grid-tile colspan="10" rowspan="1">
+    <mat-grid-tile-header>
+		<span *ngIf="surname.errors.required"><strong>{{label.surname}}</strong> Eingabe ist erforderlich.</span>
+		<span *ngIf="surname.errors.pattern">Es sind nur Buchstaben erlaubt.</span>
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+</div>
+
+<div form-group>
+  <mat-grid-tile colspan="2" rowspan="1">
+    <mat-grid-tile-header>
+	{{label.birthday}}
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="1">
+    <input type="datetime" class="form-control date-format" placeholder="yyyy-mm-dd" id="birthday" name="birthday" #birthday="ngModel" required pattern="\d{4}-\d{2}-\d{2}" [(ngModel)]="model.birthday" (change)="dataChanged()">
+  </mat-grid-tile>
+</div>
+<div form-group>
+  <mat-grid-tile colspan="2" rowspan="1">
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="1">
+  </mat-grid-tile>
+</div>
+
+<div id="birthday-error" *ngIf="birthday.invalid && (birthday.dirty || birthday.touched)">
+  <mat-grid-tile colspan="10" rowspan="1">
+    <mat-grid-tile-header>
+		<span id="1" *ngIf="birthday.errors.required"><strong>{{label.birthday}}</strong> Eingabe ist erforderlich.</span>
+		<span id="2" *ngIf="birthday.errors.pattern">Monat-Tag-Jahr(yyyy-mm-dd).</span>
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+</div>
+
+<div form-group>
+  <mat-grid-tile colspan="2" rowspan="1">
+    <mat-grid-tile-header>
+    {{label.street}}
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="1">
+    <input type="text" class="form-control" id="street" name="street" #street="ngModel" required maxlength="80" [(ngModel)]="model.street" (change)="dataChanged()">
+  </mat-grid-tile>
+</div>
+<div form-group>
+  <mat-grid-tile colspan="2" rowspan="1">
+    <mat-grid-tile-header>
+	{{label.houseNumber}}
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="1">
+    <input type="text" class="form-control" id="houseNo" name="houseNo" #houseNo="ngModel" required maxlength="10" [(ngModel)]="model.houseNumber" (change)="dataChanged()">
+  </mat-grid-tile>
+</div>
+
+<div id="street-error" *ngIf="street.invalid && (street.dirty || street.touched)">
+  <mat-grid-tile colspan="10" rowspan="1">
+    <mat-grid-tile-header>
+		<span id="1" *ngIf="street.errors.required"><strong>{{label.street}}</strong> Eingabe ist erforderlich.</span>
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+</div>
+<div id="houseNo-error" *ngIf="houseNo.invalid && (houseNo.dirty || houseNo.touched)">
+  <mat-grid-tile colspan="10" rowspan="1">
+    <mat-grid-tile-header>
+		<span id="1" *ngIf="houseNo.errors.required"><strong>{{label.houseNumber}}</strong> Eingabe ist erforderlich.</span>
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+</div>
+
+<div form-group>
+  <mat-grid-tile colspan="2" rowspan="1">
+    <mat-grid-tile-header>
+	{{label.city}}
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="1">
+    <input type="text" class="form-control" id="city" name="city" #city="ngModel" required maxlength="30" [(ngModel)]="model.city" (change)="dataChanged()">
+  </mat-grid-tile>
+</div>
+<div form-group>
+  <mat-grid-tile colspan="2" rowspan="1">
+    <mat-grid-tile-header>
+	{{label.plc}}
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="1">
+    <input type="number" class="form-control" id="plc" name="plc" #plc="ngModel" required pattern="\d{5}" [(ngModel)]="model.plc" (change)="dataChanged()">
+  </mat-grid-tile>
+</div>
+
+<div id="city-error" *ngIf="city.invalid && (city.dirty || city.touched)">
+  <mat-grid-tile colspan="10" rowspan="1">
+    <mat-grid-tile-header>
+		<span id="1" *ngIf="city.errors.required"><strong>{{label.city}}</strong> Eingabe ist erforderlich.</span>
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+</div>
+<div id="plc-error" *ngIf="plc.invalid && (plc.dirty || plc.touched)">
+  <mat-grid-tile colspan="10" rowspan="1">
+    <mat-grid-tile-header>
+		<span id="1" *ngIf="plc.errors.required"><strong>{{label.plc}}</strong> Eingabe ist erforderlich.</span>
+		<span id="2" *ngIf="plc.errors.pattern"><strong>{{label.plc}}</strong> Eine 5-stellige PLZ wird erwartet.</span>
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+</div>
+<div class="buttonGroup">
+  <mat-grid-tile colspan="3" rowspan="1">
+    <mat-grid-tile-header>
+	<button mat-raised-button color="primary" id="cur-save" style="margin-right:10px;" [disabled]="disSaveBtn" (click)="save($event)">speichern</button>
+	<button mat-raised-button color="primary" id="cur-delete" [disabled]="disDeleteBtn" (click)="delete($event)">löschen</button>
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="1">
+  </mat-grid-tile>
+  <mat-grid-tile colspan="4" rowspan="1">
+    <mat-grid-tile-header>
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1" rowspan="1">
+	<mat-grid-tile-header>
+	<button mat-raised-button color="primary" id="clean" (click)="formCleaned()">leeren</button>
+	</mat-grid-tile-header>
+  </mat-grid-tile>
+</div>
+</mat-grid-list>
+
+</form>

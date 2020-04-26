@@ -1,0 +1,37 @@
+@import '../app.component';
+
+.main-frame {
+	width:50%;
+	min-width: 700px;
+	max-width: 1000px;
+	height:100%;
+	min-height: 800px;
+	padding-top:50px;
+}
+
+.search-out-wrap {
+	padding: 25px; 
+	background-color:#f5f5f5;
+}
+
+.search-wrap {
+	height:50px; 
+	margin-top:6px;
+}
+
+.search-label {
+	font-weight:600; 
+	margin-right:6px;
+}
+
+.search-field {
+	height: $input-height;
+	width: 35%;;
+	min-width: 200px;
+}
+
+.search-button {
+	width: $button-width;
+	height: $button-height;
+	margin-left:10px;
+}

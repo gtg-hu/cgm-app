@@ -1,0 +1,31 @@
+<div class="container main-frame" >
+	<!-- search contract -->
+	<div class="panel panel-default">
+	<div class="search-out-wrap">
+		<div class="search-wrap">
+		<span class="search-label">Vertrag suchen:</span>
+		<input type="text" class="search-field" placeholder="Name eingeben" [formControl]="term">
+		<button mat-raised-button class="search-button" color="primary" (click)="search();">suchen</button>
+		</div>
+	</div>
+	
+	<!-- contract detail -->
+	<mat-accordion>
+	<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+		<mat-expansion-panel-header>
+		  <mat-panel-title>
+		  <span id="edit" style="font-weight:700; margin-right:6px;">Vertrag bearbeiten</span>
+		  </mat-panel-title>
+		</mat-expansion-panel-header>
+		<div style="border-top: 1px solid;"></div>
+		<app-contract-form [(model)]="selectedContract" [(disDeleteBtn)]="btnDisable" (contractChange)="updateContracts($event)" (formClean)="formCleaned($event)"></app-contract-form>
+	</mat-expansion-panel>
+	</mat-accordion>
+	
+	<!-- search results -->
+	<div *ngIf="showResults" class="panel-body" id="contracts">
+		<app-contract-list [(records)]="records" (contractSelect)="updateForm($event)"></app-contract-list>
+	</div>
+	
+	</div>
+</div>

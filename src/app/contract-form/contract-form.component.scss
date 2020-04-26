@@ -1,0 +1,30 @@
+@import '../app.component'; 
+
+div mat-grid-tile-header {
+	height:68%; 
+	margin-top:8px;
+}
+
+mat-grid-tile input {
+	width:100%;
+}
+
+div[id$="-error"] mat-grid-tile-header {
+	background-color: white; 
+	height:50%; padding: 0;
+}
+
+div[id$="-error"] span {
+	color: red;
+	width: 100%;
+}
+
+div[class=buttonGroup] mat-grid-tile-header {
+	padding-left:0;
+	background-color:inherit;
+}
+
+div[class=buttonGroup] button {
+	width: $button-width;
+	height: $button-height;
+}
