@@ -83,8 +83,6 @@ export class ContractFormComponent implements OnInit {
 	  this.httpService.put(this.model).subscribe( 
 	    response => {
 		  console.log("update succed!");
-		  this.model = response;
-		  this.model.birthday = Contract.getShortBirthday(response.birthday)
 		  
 		  this.disSaveBtn = true;
 		  this.disDeleteBtn = false;
